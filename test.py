@@ -20,7 +20,7 @@ def main():
     ckpt = args.checkpoint
 
     print("Reading Test DB...")
-    TestDB = Middlebury_other(input_dir, gt_dir)
+    TestDB = Converter_other(input_dir)
     print("Loading the Model...")
     checkpoint = torch.load(ckpt)
     kernel_size = checkpoint['kernel_size']
