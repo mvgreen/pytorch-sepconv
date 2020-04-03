@@ -19,12 +19,11 @@ class Converter_eval:
 
 
 class Converter_other:
-
 	def __init__(self, input_dir):
 		self.input_dir = input_dir
 		self.transform = transforms.Compose([transforms.ToTensor()])
 
-    	def Test(self, model, output_dir, logfile=None):
+	def Test(self, model, output_dir, logfile=None):
 		file_list = sorted(os.listdir(self.input_dir))
 		for i in (len(file_list) - 1):
 			in_filename, in_ext = re.split('\.', file_list[i])
@@ -33,6 +32,5 @@ class Converter_other:
 			img1 = to_variable(self.transform(Image.open(self.input_dir + '/' + file_list[i])).unsqueeze(0))
 			img2 = to_variable(self.transform(Image.open(self.input_dir + '/' + file_list[i+1])).unsqueeze(0))
 			
-            		frame_out = model(img1, img2)
-			
+			frame_out = model(img1, img2)
 			imwrite(frame_out, output_dir + '/' + out_filename)
