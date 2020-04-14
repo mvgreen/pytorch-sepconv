@@ -25,7 +25,7 @@ class Converter_other:
 
 	def Test(self, model, output_dir, logfile=None):
 		file_list = sorted(os.listdir(self.input_dir))
-		for i in (len(file_list) - 1):
+		for i in range(0, len(file_list) - 1):
 			in_filename, in_ext = re.split('\.', file_list[i])
 			out_filename = in_filename + 'a' + in_ext
 			
