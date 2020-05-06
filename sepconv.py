@@ -149,11 +149,7 @@ def cupy_launch(strFunction, strKernel):
 # end
 
 class FunctionSepconv(torch.autograd.Function):
-    def __init__(self):
-        super(FunctionSepconv, self).__init__()
-
-    # end
-
+    
     @staticmethod
     def forward(ctx, input, vertical, horizontal):
         ctx.save_for_backward(input, vertical, horizontal)
