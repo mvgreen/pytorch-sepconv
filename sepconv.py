@@ -154,8 +154,9 @@ class FunctionSepconv(torch.autograd.Function):
 
     # end
 
-    def forward(self, input, vertical, horizontal):
-        self.save_for_backward(input, vertical, horizontal)
+    @staticmethod
+    def forward(ctx, input, vertical, horizontal):
+        ctx.save_for_backward(input, vertical, horizontal)
 
         intSample = input.size(0)
         intInputDepth = input.size(1)
@@ -202,8 +203,9 @@ class FunctionSepconv(torch.autograd.Function):
 
     # end
 
-    def backward(self, gradOutput):
-        input, vertical, horizontal = self.saved_tensors
+    @staticmethod
+    def backward(ctx, gradOutput):
+        input, vertical, horizontal = ctx.saved_tensors
 
         intSample = input.size(0)
         intInputDepth = input.size(1)
