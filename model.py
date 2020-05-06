@@ -162,8 +162,9 @@ class SepConvNet(torch.nn.Module):
 
         Vertical1, Horizontal1, Vertical2, Horizontal2 = self.get_kernel(frame0, frame2)
 
-        tensorDot1 = sepconv.FunctionSepconv()(self.modulePad(frame0), Vertical1, Horizontal1)
-        tensorDot2 = sepconv.FunctionSepconv()(self.modulePad(frame2), Vertical2, Horizontal2)
+        sepconv_operator = sepconv.FunctionSepconv.apply
+        tensorDot1 = sepconv_operator(self.modulePad(frame0), Vertical1, Horizontal1)
+        tensorDot2 = sepconv_operator(self.modulePad(frame2), Vertical2, Horizontal2)
 
         frame1 = tensorDot1 + tensorDot2
 
