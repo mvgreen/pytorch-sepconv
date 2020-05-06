@@ -28,6 +28,7 @@ def main():
     state_dict = checkpoint['state_dict']
     model.load_state_dict(state_dict)
     model.epoch = checkpoint['epoch']
+    model.cuda()
 
     print("Test Start...")
     TestDB.Test(model, output_dir)
