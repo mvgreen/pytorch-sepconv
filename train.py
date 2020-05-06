@@ -6,7 +6,7 @@ from torchvision import transforms
 import torch
 from torch.autograd import Variable
 import os
-from TestModule import Middlebury_other
+from TestModule import Converter_other
 
 parser = argparse.ArgumentParser(description='SepConv Pytorch')
 
@@ -52,7 +52,7 @@ def main():
     dataset = DBreader_frame_interpolation(db_dir, resize=(128, 128))
     train_loader = DataLoader(dataset=dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 
-    TestDB = Middlebury_other(args.test_input, args.gt)
+    TestDB = Converter_other(args.test_input, args.gt)
     test_output_dir = args.out_dir + '/result'
 
     if args.load_model is not None:
