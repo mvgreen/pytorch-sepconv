@@ -29,8 +29,12 @@ class Converter_other:
 			in_filename, in_ext = re.split('\.', file_list[i])
 			out_filename = in_filename + 'a' + in_ext
 			
-			img1 = to_variable(self.transform(Image.open(self.input_dir + '/' + file_list[i])).unsqueeze(0))
-			img2 = to_variable(self.transform(Image.open(self.input_dir + '/' + file_list[i+1])).unsqueeze(0))
+			im1 = Image.open(self.input_dir + '/' + file_list[i])
+			im2 = Image.open(self.input_dir + '/' + file_list[i+1])
+			img1 = to_variable(self.transform(im1).unsqueeze(0))
+			img2 = to_variable(self.transform(im2).unsqueeze(0))
 			
 			frame_out = model(img1, img2)
 			imwrite(frame_out, output_dir + '/' + out_filename)
+			im1.close()
+			im2.close()
