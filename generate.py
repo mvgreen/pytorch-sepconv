@@ -28,7 +28,7 @@ class Converter_other:
         file_list = sorted(os.listdir(self.input_dir))
         for i in range(len(file_list) - 1):
             in_filename, in_ext = re.split('\.', file_list[i])
-            out_filename = in_filename + 'a' + in_ext
+            out_filename = in_filename + 'a.' + in_ext
             
             im1 = Image.open(self.input_dir + '/' + file_list[i])
             im2 = Image.open(self.input_dir + '/' + file_list[i+1])
