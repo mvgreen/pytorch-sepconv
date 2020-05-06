@@ -216,9 +216,9 @@ class FunctionSepconv(torch.autograd.Function):
 
         assert (gradOutput.is_contiguous() == True)
 
-        gradInput = input.new_zeros(intSample, intInputDepth, intInputHeight, intInputWidth) if self.needs_input_grad[0] == True else None
-        gradVertical = input.new_zeros(intSample, intFilterSize, intOutputHeight, intOutputWidth) if self.needs_input_grad[1] == True else None
-        gradHorizontal = input.new_zeros(intSample, intFilterSize, intOutputHeight, intOutputWidth) if self.needs_input_grad[2] == True else None
+        gradInput = input.new_zeros(intSample, intInputDepth, intInputHeight, intInputWidth) if ctx.needs_input_grad[0] == True else None
+        gradVertical = input.new_zeros(intSample, intFilterSize, intOutputHeight, intOutputWidth) if ctx.needs_input_grad[1] == True else None
+        gradHorizontal = input.new_zeros(intSample, intFilterSize, intOutputHeight, intOutputWidth) if ctx.needs_input_grad[2] == True else None
 
         if input.is_cuda == True:
             class Stream:
