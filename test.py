@@ -1,5 +1,5 @@
 import argparse
-from TestModule import Converter_other
+from generate import Converter_other
 from model import SepConvNet
 import torch
 
