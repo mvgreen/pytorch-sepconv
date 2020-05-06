@@ -32,8 +32,8 @@ class Converter_other:
             
             im1 = Image.open(self.input_dir + '/' + file_list[i])
             im2 = Image.open(self.input_dir + '/' + file_list[i+1])
-			img1 = to_variable(self.transform(im1).unsqueeze(0))
-			img2 = to_variable(self.transform(im2).unsqueeze(0))
+            img1 = to_variable(self.transform(im1).unsqueeze(0))
+            img2 = to_variable(self.transform(im2).unsqueeze(0))
             
             frame_out = model(img1, img2)
             imwrite(frame_out, output_dir + '/' + out_filename)
