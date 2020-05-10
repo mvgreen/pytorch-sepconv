@@ -134,7 +134,7 @@ class SepConvNet(torch.nn.Module):
         self.epoch = Variable(torch.tensor(0, requires_grad=False))
         self.get_kernel = KernelEstimation(self.kernel_size)
         self.optimizer = optim.Adam(self.parameters(), lr=0.001)
-        self.criterion = torch.nn.MSELoss()
+        self.criterion = torch.nn.L1Loss()
 
         self.modulePad = torch.nn.ReplicationPad2d([self.kernel_pad, self.kernel_pad, self.kernel_pad, self.kernel_pad])
 
