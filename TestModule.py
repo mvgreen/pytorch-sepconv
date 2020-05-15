@@ -32,8 +32,8 @@ class Generic_other:
         sample_list = sorted(os.listdir(self.input_dir))
         for idx in range(len(sample_list)):
             item = sample_list[idx]
-            if not os.path.exists(output_dir + '/' + item):
-                os.makedirs(output_dir + '/' + item)
+            #if not os.path.exists(output_dir + '/' + item):
+            #    os.makedirs(output_dir + '/' + item)
             im_1 = Image.open(self.input_dir + '/' + item + '/frame1.png')
             im_2 = Image.open(self.gt_dir + '/' + item + '/frame2.png')
             im_3 = Image.open(self.input_dir + '/' + item + '/frame3.png')
@@ -44,8 +44,8 @@ class Generic_other:
             psnr = -10 * log10(torch.mean((gt - frame_out) * (gt - frame_out)).item())
             av_psnr += psnr
             #imwrite(frame_out, output_dir + '/' + item + '/' + output_name, range=(0, 1))
-            msg = '{:<15s}{:<20.16f}'.format(item + ': ', psnr) + '\n'
-            print(msg, end='')
+            #msg = '{:<15s}{:<20.16f}'.format(item + ': ', psnr) + '\n'
+            #print(msg, end='')
             if logfile is not None:
                 logfile.write(msg)
             im_1.close()
