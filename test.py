@@ -11,7 +11,7 @@ parser.add_argument('--input', type=str, default='./Interpolation_testset/input'
 parser.add_argument('--gt', type=str, default='./Interpolation_testset/gt')
 parser.add_argument('--output', type=str, default='./output_sepconv_pytorch_0/result')
 parser.add_argument('--checkpoint', type=str, default='./output_sepconv_pytorch_0/checkpoint/model_epoch010.pth')
-parset.add_argument('--cpfolder', type=str, default='./output_sepconv_pytorch_0/checkpoint/')
+parser.add_argument('--cpfolder', type=str, default='./output_sepconv_pytorch_0/checkpoint/')
 parser.add_argument('--generate', type=bool, default=False)
 
 
