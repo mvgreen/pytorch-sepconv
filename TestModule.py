@@ -34,9 +34,9 @@ class Generic_other:
             item = sample_list[idx]
             if not os.path.exists(output_dir + '/' + item):
                 os.makedirs(output_dir + '/' + item)
-            im_1 = Image.open(input_dir + '/' + item + '/frame1.png')
-            im_2 = Image.open(gt_dir + '/' + item + '/frame2.png')
-            im_3 = Image.open(input_dir + '/' + item + '/frame3.png')
+            im_1 = Image.open(self.input_dir + '/' + item + '/frame1.png')
+            im_2 = Image.open(self.gt_dir + '/' + item + '/frame2.png')
+            im_3 = Image.open(self.input_dir + '/' + item + '/frame3.png')
             frame_in_1 = to_variable(self.transform(im_1).unsqueeze(0))
             frame_in_3 = to_variable(self.transform(im_3).unsqueeze(0))
             gt = to_variable(self.transform(im_2).unsqueeze(0))
