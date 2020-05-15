@@ -39,7 +39,7 @@ def test_images(input_dir, gt_dir, output_dir, ckpt_folder):
     ckpt_list = sorted(os.listdir(ckpt_folder))
     
     for i in range(len(ckpt_list)):
-        checkpoint = torch.load(ckpt_list[i])
+        checkpoint = torch.load(ckpt_folder + '/' + ckpt_list[i])
         kernel_size = checkpoint['kernel_size']
         model = SepConvNet(kernel_size=kernel_size)
         state_dict = checkpoint['state_dict']
