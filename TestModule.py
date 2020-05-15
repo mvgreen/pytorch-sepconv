@@ -26,8 +26,7 @@ class Generic_other:
     
     def Test(self, model, output_dir, logfile=None, output_name='output.png'):
         av_psnr = 0
-        if logfile is not None:
-            logfile.write('{:<7s}{:<3d}'.format('Epoch: ', model.epoch.item()) + '\n')
+        print('{:<7s}{:<3d}'.format('Epoch: ', model.epoch.item()) + '\n')
         
         sample_list = sorted(os.listdir(self.input_dir))
         for idx in range(len(sample_list)):
