@@ -3,6 +3,7 @@ from generate import Converter_other
 from TestModule import Generic_other
 from model import SepConvNet
 import torch
+import os
 
 parser = argparse.ArgumentParser(description='SepConv Pytorch')
 
