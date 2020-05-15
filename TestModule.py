@@ -43,7 +43,7 @@ class Generic_other:
             frame_out = model(frame_in_1, frame_in_3)
             psnr = -10 * log10(torch.mean((gt - frame_out) * (gt - frame_out)).item())
             av_psnr += psnr
-            imwrite(frame_out, output_dir + '/' + item + '/' + output_name, range=(0, 1))
+            #imwrite(frame_out, output_dir + '/' + item + '/' + output_name, range=(0, 1))
             msg = '{:<15s}{:<20.16f}'.format(item + ': ', psnr) + '\n'
             print(msg, end='')
             if logfile is not None:
